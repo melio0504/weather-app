@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+require("dotenv").config();
 
 module.exports = {
   entry: { 
@@ -7,7 +8,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: "./index.html"
+        template: "./index.html",
+        "process.env.GIPHY_API_KEY": JSON.stringify(process.env.GIPHY_API_KEY),
+        "process.env.WEATHER_API_KEY": JSON.stringify(process.env.WEATHER_API_KEY)
       })
     ],
   devtool: "eval-source-map",
