@@ -6,6 +6,63 @@
   padding: 0;
 }
 
+:root {
+  --background-color: #f4f4f4;
+  --accent-color: #e5cbba;
+  --font-family: "Google Sans", sans-serif;
+  --title: 1.5rem;
+  --input: 1rem;
+  --time: 1.2rem;
+  --border-radius: 10px;
+}
+
 body {
   height: 100vh;
+  width: 80vw;
+  font-family: var(--font-family);
+  background: var(--background-color);
+  margin: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  padding: 10px 20px;
+}
+
+h1 {
+  background: var(--accent-color);
+  border-radius: var(--border-radius);
+  font-size: var(--title);
+  padding: 5px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  background: var(--accent-color);
+  border-radius: var(--border-radius);
+}
+
+input {
+  font-size: var(--input);
+  width: 400px;  
+  padding: 5px 10px 5px 10px;
+  border: none;
+  background: none; 
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#currentTime {
+  font-size: var(--time);
+  font-weight: bold;
 }
