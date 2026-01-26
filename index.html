@@ -5,8 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="icon" href="./public/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello World</h1>
+  <header>
+    <h1>Whether</h1>
+    <search>
+      <form>
+        <input type="search" name="searchBar" placeholder="Search city">
+        <button type="submit" title="Search">
+          <img src="public/images/search-icon.png" width="20px" height="20px">
+        </button>
+      </form>
+    </search>
+    <span id="currentTime"></span>
+  </header>
+  <main>
+    <div class="overviewInfo">
+
+    </div>
+    <div class="nextHours">
+
+    </div>
+    <div class="nextThreeDays">
+
+    </div>
+  </main>
 </body>
 </html>
