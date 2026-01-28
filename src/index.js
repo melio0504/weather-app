@@ -9,7 +9,17 @@ import { format } from 'date-fns';
     currentTime.textContent = format(new Date(), 'p');
   }
 
-  updateTime();
+  const scheduleNextTick = () => {
+    const now = new Date();
 
-  setInterval(displayTime, 60000);
+    const delay = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+
+    setTimeout(() => {
+      updateTime();
+      scheduleNextTick()
+    }, delay)
+  }
+
+  updateTime();
+  scheduleNextTick();
 })();
