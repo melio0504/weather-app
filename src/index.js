@@ -7,33 +7,14 @@ import { getWeatherIcon, thermometerIcon, umbrellaIcon, windIcon } from './weath
   practicing how to do asynchronous code.
 
   So don't worry if you are reading this shitty codebase
-  of mine. I will learn how to handle API in backend.
+  of mine. I will learn how to handle API in backend soon!
 
   Love much~
 */
 
-const WEATHER_API = '9T7BNC95NS5QXRVSWVDPTCEUV';
-const GIPHY_API = 'AEM2sVUVAZQT47TtYFcrutqvDw4WzO01';
-
-const searchForm = document.querySelector('form');
-const searchInput = document.querySelector('input[name="searchBar"]');
-const currentTimeSpan = document.getElementById('currentTime');
-const weatherIconImg = document.getElementById('weather-icon');
-const currentTempH2 = document.querySelector('.current-temp');
-const feelSpan = document.querySelector('.feel');
-const weatherGifImg = document.getElementById('weather-gif');
-const tempRangeSpan = document.getElementById('temp-range');
-const rainChanceSpan = document.getElementById('rain-chance');
-const windSpeedSpan = document.getElementById('wind-speed');
-const sunriseTimeSpan = document.getElementById('sunrise-time');
-const sunsetTimeSpan = document.getElementById('sunset-time');
-const uvIndexSpan = document.getElementById('uv-index');
-const pressureSpan = document.getElementById('pressure');
-const humiditySpan = document.getElementById('humidity');
-const nextHoursSection = document.querySelector('.next-hours');
-const nextDaysSection = document.querySelector('.next-days');
-
 async function getWeatherData(location) {
+  const WEATHER_API = '9T7BNC95NS5QXRVSWVDPTCEUV';
+
   try {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${WEATHER_API}&contentType=json`);
 
@@ -53,6 +34,8 @@ async function getWeatherData(location) {
 }
 
 async function getGiphy(searchTerm) {
+    const GIPHY_API = 'AEM2sVUVAZQT47TtYFcrutqvDw4WzO01';
+
     try {
       const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API}&q=${searchTerm}&limit=1&offset=0&rating=g&lang=en`);
 
@@ -67,6 +50,24 @@ async function getGiphy(searchTerm) {
         console.error("Could not fetch GIF:", error);
     }
 }
+
+const searchForm = document.querySelector('form');
+const searchInput = document.querySelector('input[name="searchBar"]');
+const currentTimeSpan = document.getElementById('currentTime');
+const weatherIconImg = document.getElementById('weather-icon');
+const currentTempH2 = document.querySelector('.current-temp');
+const feelSpan = document.querySelector('.feel');
+const weatherGifImg = document.getElementById('weather-gif');
+const tempRangeSpan = document.getElementById('temp-range');
+const rainChanceSpan = document.getElementById('rain-chance');
+const windSpeedSpan = document.getElementById('wind-speed');
+const sunriseTimeSpan = document.getElementById('sunrise-time');
+const sunsetTimeSpan = document.getElementById('sunset-time');
+const uvIndexSpan = document.getElementById('uv-index');
+const pressureSpan = document.getElementById('pressure');
+const humiditySpan = document.getElementById('humidity');
+const nextHoursSection = document.querySelector('.next-hours');
+const nextDaysSection = document.querySelector('.next-days');
 
 function updateCurrentTime() {
   const now = new Date();
