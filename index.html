@@ -31,81 +31,91 @@
         </button>
       </form>
     </search>
-    <!-- This will show the currect time in this format (9:41 AM) -->
-    <span id="currentTime"></span>
+    <span id="currentTime">
+      <!-- This will show the currect time in this format (9:41 AM) -->
+    </span>
   </header>
   <main>
     <section class="overview-info">
       <div class="overview">
-        <!-- Overview Temperature -->
-
-        <!-- GIFs Placeholder -->
-
+        <div class="overview-temp">
+          <img id="weather-icon" alt="Weather Icon" width="100px" height="100px">
+          <h2 class="current-temp">--°</h2>
+          <span class="feel">--</span>
+        </div>
+        <img id="weather-gif" alt="Weather-based GIF" class="GIF-placeholder" draggable="false">
       </div>
       <div class="additional-details">
-        <!-- 2 x 4 Grid -->
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/thermometer.svg" alt="Min/Max Temp" width="40px" height="40px">
           </div>
           <div class="card-detail">
-
+            <p>Min/Max Temp</p>
+            <span id="temp-range">--° / --°</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/umbrella.svg" alt="Chance of Rain" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
+            <p>Chance of Rain</p>
+            <span id="rain-chance">--%</span>
+          </div>
+        </div>  
+        <div class="extra-card">
+          <div class="icon-left">
+            <img src="public/images/icons/sunrise.svg" alt="Sunrise" width="40px" height="40px">
+          </div>
+          <div class="card-detail">
+            <p>Sunrise</p>
+            <span id="sunrise-time">--:-- AM</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/sunset.svg" alt="Sunset" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
+            <p>Sunset</p>
+            <span id="sunset-time">--:-- PM</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/uv-index.svg" alt="UV Index" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
+            <p>UV Index</p>
+            <span id="uv-index">--</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/wind.svg" alt="Wind Speed" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
+            <p>Wind Speed</p>
+            <span id="wind-speed">-- km/h</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/pressure-low.svg" alt="Pressure" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
+            <p>Pressure</p>
+            <span id="pressure">-- hPa</span>
           </div>
         </div>
         <div class="extra-card">
           <div class="icon-left">
-
+            <img src="public/images/icons/humidity.svg" alt="Humidity" width="40px" height="40px">
           </div>
           <div class="card-detail">
-            
-          </div>
-        </div>
-        <div class="extra-card">
-          <div class="icon-left">
-
-          </div>
-          <div class="card-detail">
-            
+            <p>Humidity</p>
+            <span id="humidity">--%</span>
           </div>
         </div>
       </div>
@@ -113,17 +123,17 @@
 
     <h2>NEXT HOURS</h2>
     <section class="next-hours">
-
+      <!-- Dynamically generated 24-hour forecast -->
     </section>
 
     <h2>NEXT DAYS</h2>
     <section class="next-days">
-      
+      <!-- Dynamically generated 3-day forecast -->
     </section>
   </main>
   <footer>
     <p>
-      Made by using 
+      Made using 
       <a href="https://www.visualcrossing.com/" target="_blank" rel="noreferrer">Visual Crossing</a>
       & 
       <a href="https://developers.giphy.com/" target="_blank" rel="noreferrer">GIPHY API</a>
