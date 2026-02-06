@@ -122,11 +122,22 @@ function updateUI(weatherData) {
   nextHoursSection.innerHTML = '';
   const now = new Date();
   const currentHour = now.getHours();
-  days[0].hours.slice(currentHour, currentHour + 24).forEach(hour => {
+  
+  const allHours = [...days[0].hours, ...days[1].hours];
+  const next24Hours = allHours.slice(currentHour, currentHour + 24);
+  
+  next24Hours.forEach(hour => {
     const hourDiv = document.createElement('div');
     hourDiv.classList.add('hour-forecast');
+    
+    const [hours, minutes] = hour.datetime.slice(0, 5).split(':');
+    const hour24 = parseInt(hours);
+    const hour12 = hour24 === 0 ? 12 : hour24 > 12 ? hour24 - 12 : hour24;
+    const period = hour24 >= 12 ? 'PM' : 'AM';
+    const timeFormatted = `${hour12}:${minutes} ${period}`;
+    
     hourDiv.innerHTML = `
-      <p>${hour.datetime.slice(0, 5)}</p>
+      <p>${timeFormatted}</p>
       <img src="${getWeatherIcon(hour.icon)}" alt="${hour.conditions}" width="80px" height="80px" draggable="false">
       <p>${hour.conditions}</p>
       <p><img src="${thermometerIcon}" width="30px" height="30px" draggable="false"> ${Math.round(hour.temp)}°</p>
