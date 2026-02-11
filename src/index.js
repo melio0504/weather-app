@@ -34,21 +34,34 @@ async function getWeatherData(location) {
 }
 
 async function getGiphy(searchTerm) {
-    const GIPHY_API = 'AEM2sVUVAZQT47TtYFcrutqvDw4WzO01';
+  const GIPHY_API = 'AEM2sVUVAZQT47TtYFcrutqvDw4WzO01';
+  const encodedTerm = encodeURIComponent(searchTerm);
 
-    try {
-      const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API}&q=${searchTerm}&limit=1&offset=0&rating=g&lang=en`);
+  try {
+    const randomResponse = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${GIPHY_API}&tag=${encodedTerm}&rating=g`);
 
-      if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      return data.data[0].images.original.url;
-    } catch (error) {
-        console.error("Could not fetch GIF:", error);
+    if (!randomResponse.ok) {
+      throw new Error(`HTTP error! status: ${randomResponse.status}`);
     }
+
+    const randomData = await randomResponse.json();
+    const randomUrl = randomData?.data?.images?.original?.url;
+
+    if (randomUrl) { return randomUrl; }
+
+    const randomOffset = Math.floor(Math.random() * 50);
+    const searchResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API}&q=${encodedTerm}&limit=1&offset=${randomOffset}&rating=g&lang=en`);
+
+    if (!searchResponse.ok) {
+      throw new Error(`HTTP error! status: ${searchResponse.status}`);
+    }
+
+    const searchData = await searchResponse.json();
+
+    return searchData?.data?.[0]?.images?.original?.url;
+  } catch (error) {
+    console.error("Could not fetch GIF:", error);
+  }
 }
 
 const searchForm = document.querySelector('form');
